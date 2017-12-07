@@ -12,7 +12,8 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
 
-        app.iocService();
+//        app.iocService();
+        app.aopService();
     }
 
     /**
@@ -37,6 +38,10 @@ public class App {
         service.sayHello("IFLYTEK");
     }
 
+    public void aopService(){
+        NameService service  =createContext("2.3_aop.xml").getBean(NameService.class);
+        service.sayHello("PROXY IFLYTEK");
+    }
     public ApplicationContext createContext(String path) {
         return new ClassPathXmlApplicationContext(path);
     }
